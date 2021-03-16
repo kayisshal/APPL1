@@ -103,12 +103,13 @@ public class IntegerListTest{
 	System.out.println("   ====");
 	System.out.println("0: Quit");
 	System.out.println("1: Create a new list (** do this first!! **)");
-	System.out.println("2: Sort the list using selection sort in increasing order");
+	System.out.println("2: Print the list");
 	System.out.println("3: Find an element in the list using sequential search");
-	System.out.println("4: Sort the list using selection sort in decreasing order");
+	System.out.println("4: Sort the list using selection sort in increasing order");
 	System.out.println("5: Replace First Occuring Value");
 	System.out.println("6: Replace All the Occuring Values");
-	System.out.println("7: Print the list");
+	System.out.println("7: Sort the list using selection sort in decreasing order");
+    System.out.println("8: Find an element in the list using binary search");
 	System.out.print("\nEnter your choice: ");
     }
 }
