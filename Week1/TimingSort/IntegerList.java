@@ -1,4 +1,4 @@
-0package Sorting;
+package Sorting;
 // ****************************************************************
 // IntegerList.java
 //
