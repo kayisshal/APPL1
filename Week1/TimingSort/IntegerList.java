@@ -1,4 +1,4 @@
-package Sorting;
+0package Sorting;
 // ****************************************************************
 // IntegerList.java
 //
@@ -77,19 +77,6 @@ public class IntegerList{
         }
     }
 
-    //-------------------------------------------------------
-    //return the index of the first occurrence of target in the list.
-    //return -1 if target does not appear in the list
-    //-------------------------------------------------------
-    public int search(int target)
-    {
-    int location = -1;
-    for (int i=0; i<list.length && location == -1; i++)
-        if (list[i] == target)
-        location = i;
-    return location;
-    }
-
 
     //-------------------------------------------------------
     //sort the list into ascending order using the selection sort algorithm
@@ -110,35 +97,6 @@ public class IntegerList{
         list[i] = list[minIndex];
         list[minIndex] = temp;
         }
-    }
-
-    //-------------------------------------------------------
-    //replaces the first occurrence of oldVal in the list with newVal. 
-    //-------------------------------------------------------
-    public void replaceFirst(int oldVal, int newVal)
-    {
-     int location = -1 ;
-     location = search(oldVal);
-     if (location == -1 )
-         System.out.println("This Value does not exist, value not Replaced");
-     else
-         list[location] = newVal;
-    }
-   
-    //-------------------------------------------------------
-    //replaces all occurrences of oldVal in the list with newVal
-    //-------------------------------------------------------
-    public void replaceAll(int oldVal, int newVal)
-    {
-    int location = -1;
-	for (int i=0; i<list.length; i++)
-	   {
-	       if (list[i] == oldVal)
-	       {
-	           location = i;
-	           list[location] = newVal;
-	       }
-	   }
     }
 
     //-------------------------------------------------------
