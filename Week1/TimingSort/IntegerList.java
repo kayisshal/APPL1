@@ -1,4 +1,4 @@
-package Sorting;
+package TimingSort;
 // ****************************************************************
 // IntegerList.java
 //
@@ -6,6 +6,7 @@ package Sorting;
 // sort, and search in a list of integers.
 //          
 // ****************************************************************
+import java.util.Scanner;
 public class IntegerList{
 
     int[] list; //values in the list

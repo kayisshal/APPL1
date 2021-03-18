@@ -1,11 +1,12 @@
-package Sorting;
+package TimingSort;
 // ****************************************************************
 // IntegerListTest.java
 //
 // Provide a menu-driven tester for the IntegerList class.
 //          
 // ****************************************************************
-import java.util.Scanner; 
+import java.util.Scanner;
+import java.util.*; 
 
 public class IntegerListTest{
 
@@ -34,82 +35,97 @@ public class IntegerListTest{
     public static void dispatch(int choice)
     {
 	    int loc;
-	    int oldVal;
-	    int newVal;
+	    int val;
+        
 	    switch(choice)
 	    {
             case 0: 
                 System.out.println("Bye!");
                 break;
-            case 1:
-                System.out.println("How big should the list be?");
-                int size = scan.nextInt();
-                list = new IntegerList(size);
-                list.randomize();
-                break;
-            case 2:
-                list.print();
-		        break;
-            case 3:
-                System.out.print("Enter the value to look for: ");
-                loc = list.search(scan.nextInt());
-                if (loc != -1)
-                    System.out.println("Found at location " + loc);
-                else
-	    	        System.out.println("Not in list");
-		        break;
-	        case 4:
-                list.selectionSort();
-                break;
-	        case 5:
-    	        System.out.print("Enter the Value you want to Replace: ");
-	            oldVal = scan.nextInt();
-                System.out.print("Enter the Value you want to Replace it with: ");
-                newVal = scan.nextInt();
-        	    list.replaceFirst(oldVal, newVal);
-	            break;
-	        case 6:
-	            System.out.print("Enter the Value you want to Replace: ");
-    	        oldVal = scan.nextInt();
-        	    System.out.print("Enter the Value you want to Replace it with: ");
-	            newVal = scan.nextInt();
-    	        list.replaceAll(oldVal, newVal);
-	            break;
-	        case 7:
-                list.sortDecreasing();
-	            break;
+                case 1: 
+                System.out.println(list); 
+            break; 
+            case 2: 
+                System.out.println("How big should the list be?"); 
+                list = new IntegerList(scan.nextInt()); 
+                System.out.println("List is created."); 
+            break; 
+            case 3: 
+                list.randomize(); 
+                System.out.println("List is filled with random elements."); 
+            break; 
+            case 4: 
+                list.fillSorted(); 
+                System.out.println("List is filled with sorted elements."); 
+            break; 
+            case 5: 
+                System.out.print("Enter the value to look for: "); 
+                val = scan.nextInt(); 
+                time1 = System.currentTimeMillis();
+                
+                loc = list.linearSearch(val);
+                time2 = System.currentTimeMillis();
+                
+                System.out.println("Execution Time : " + ((time2 - time1)) + " ms");
+                
+                if (loc != -1) 
+                    System.out.println("Found at location " + loc); 
+                else 
+                    System.out.println("Not in list"); 
+            break; 
+            case 6: 
+                System.out.print("Enter the value to look for: "); 
+                val = scan.nextInt();
+                time1 = System.currentTimeMillis();
+                
+                loc = list.binarySearch(val);
+                time2 = System.currentTimeMillis();
+                
+                System.out.println("Execution Time : " + ((time2 - time1)) + " ms");
+           
+                if (loc != -1) 
+                    System.out.println("Found at location " + loc); 
+                else 
+                    System.out.println("Not in list"); 
+            break; 
+            case 7:
+                time1 = System.currentTimeMillis();
+                list.sortIncreasing();
+                time2 = System.currentTimeMillis();
+                
+                System.out.println("Execution Time : " + ((time2 - time1)) + " ms");
+                System.out.println("List has been sorted."); 
+            break; 
             case 8:
-                int target;
-                System.out.println("Enter the value to look for:");
-                target = list.binarySearchD(scan.nextInt());
-                if (target != -1)
-                    System.out.println(target);
-                else
-	    	        System.out.println("Not in list");              
-	            break;
-    	    default:
-		        System.out.println("Sorry, invalid choice");
-	    }
+                time1 = System.currentTimeMillis();
+                list.sortDecreasing();;
+                time2 = System.currentTimeMillis();
+                
+                System.out.println("Execution Time : " + ((time2 - time1)) + " ms");
+                System.out.println("List has been sorted."); 
+            break; 
+            default: 
+                System.out.println("Sorry, invalid choice"); 
+            } 
+        } 
+        //------------------------------------------------------ 
+        // printMenu -- prints the user's choices 
+        //------------------------------------------------------ 
+        public static void printMenu(){ 
+            System.out.println("\n Menu "); 
+            System.out.println(" ===="); 
+            System.out.println("0: Quit"); 
+            System.out.println("1: Print the list"); 
+            System.out.println("2: Create a new list of a given size"); 
+            System.out.println("3: Fill the list with random ints in range 1-length"); 
+            System.out.println("4: Fill the list with already sorted elements"); 
+            System.out.println("5: Use linear search to find an element"); 
+            System.out.println("6: Use binary search to find an element " + 
+            "(list must be sorted in increasing order)"); 
+            System.out.println("7: Use selection sort to sort the list into " + 
+            " increasing order"); 
+            System.out.println("8: Use insertion sort to sort the list into " + 
+            " decreasing order"); 
+            System.out.print("\nEnter your choice: "); 
+        } 
     }
-
-
-    //-------------------------------------------------------
-    // Print the user's choices
-    //-------------------------------------------------------
-    public static void printMenu()
-    {
-
-	System.out.println("\n   Menu   ");
-	System.out.println("   ====");
-	System.out.println("0: Quit");
-	System.out.println("1: Create a new list (** do this first!! **)");
-	System.out.println("2: Print the list");
-	System.out.println("3: Find an element in the list using sequential search");
-	System.out.println("4: Sort the list using selection sort in increasing order");
-	System.out.println("5: Replace First Occuring Value");
-	System.out.println("6: Replace All the Occuring Values");
-	System.out.println("7: Sort the list using selection sort in decreasing order");
-    System.out.println("8: Find an element in the list using binary search");
-	System.out.print("\nEnter your choice: ");
-    }
-}
