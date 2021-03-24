@@ -1,13 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Nama : Kayis Shalahuddin
+ * NIM : 191524047
+ * Pertemuan : Week-2
  */
 package Exceptions;
 
 /**
  *
- * @author acer
+ * @author Kayis
  */
 // **************************************************************** 
 // CountLetters.java 
@@ -33,7 +33,13 @@ public class CountLetters
         
         //count frequency of each letter in string 
         for (int i=0; i < word.length(); i++) 
-            counts[word.charAt(i)-'A']++; 
+            try {
+                counts[word.charAt(i)-'A']++;
+            }
+            catch(ArrayIndexOutOfBoundsException value_){
+                System.out.println("Not a letter : " + word.charAt(i));
+            }
+             
         
         //print frequencies 
         System.out.println(); 
