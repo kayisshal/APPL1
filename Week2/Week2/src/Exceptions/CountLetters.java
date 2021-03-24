@@ -40,7 +40,6 @@ public class CountLetters
                 System.out.println("Not a letter : " + word.charAt(i));
             }
              
-        
         //print frequencies 
         System.out.println(); 
         for (int i=0; i < counts.length; i++) 
