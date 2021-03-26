@@ -1,0 +1,7 @@
+it's a test of copying file case.
+first
+second
+third
+fourth
+fifth
+end of line

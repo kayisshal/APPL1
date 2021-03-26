@@ -34,10 +34,10 @@ public class Warning
         try 
         { 
             // Set up scanner to input file 
-            Scanner scan = new Scanner(new File(inputName)); 
+            Scanner scan = new Scanner(new File("src/FileInputAndOutput/" + inputName)); 
             
             // Set up the output file stream 
-            PrintWriter outFile = new PrintWriter(new File(outputName));
+            PrintWriter outFile = new PrintWriter(new File("src/FileInputAndOutput/" + outputName));
                     
             // Print a header to the output file 
             outFile.println (); 
@@ -50,6 +50,15 @@ public class Warning
                 // Get the credit hours and quality points and 
                 // determine if the student is on warning. If so, 
                 // write the student data to the output file. 
+                
+                name = scan.next();
+		creditHrs = scan.nextInt();
+		qualityPts = scan.nextDouble();
+		gpa = qualityPts / creditHrs;
+		if (creditHrs < 30 && gpa < 1.5  || creditHrs < 60 && gpa < 1.75
+		   || creditHrs >= 60 && gpa < 2.0){
+                    outFile.println (name + " " + creditHrs + " " + gpa);
+                }
                 
             } 
             
